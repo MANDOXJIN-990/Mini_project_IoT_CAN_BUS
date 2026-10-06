@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "author": "Ishan",
+  "editor": "wokwi",
+
+  "parts": [
+
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+
+    {
+      "type": "wokwi-pushbutton",
+      "id": "start",
+      "top": -100,
+      "left": 300,
+      "attrs": {
+        "color": "green",
+        "label": "START / STOP"
+      }
+    },
+
+    {
+      "type": "wokwi-pushbutton",
+      "id": "accel",
+      "top": 20,
+      "left": 300,
+      "attrs": {
+        "color": "blue",
+        "label": "ACCEL"
+      }
+    },
+
+    {
+      "type": "wokwi-pushbutton",
+      "id": "brake",
+      "top": 140,
+      "left": 300,
+      "attrs": {
+        "color": "red",
+        "label": "BRAKE"
+      }
+    },
+
+    {
+      "type": "wokwi-ssd1306",
+      "id": "oled",
+      "top": -50,
+      "left": 520,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+
+    {
+      "type": "wokwi-led",
+      "id": "green_led",
+      "top": 250,
+      "left": 500,
+      "attrs": {
+        "color": "green",
+        "label": "ENGINE ON"
+      }
+    },
+
+    {
+      "type": "wokwi-led",
+      "id": "red_led",
+      "top": 250,
+      "left": 600,
+      "attrs": {
+        "color": "red",
+        "label": "ENGINE OFF"
+      }
+    },
+
+    {
+      "type": "wokwi-led",
+      "id": "yellow_led",
+      "top": 250,
+      "left": 700,
+      "attrs": {
+        "color": "yellow",
+        "label": "TEMP WARNING"
+      }
+    },
+
+    {
+      "type": "wokwi-resistor",
+      "id": "r_green",
+      "top": 310,
+      "left": 500,
+      "attrs": {
+        "value": "220"
+      }
+    },
+
+    {
+      "type": "wokwi-resistor",
+      "id": "r_red",
+      "top": 310,
+      "left": 600,
+      "attrs": {
+        "value": "220"
+      }
+    },
+
+    {
+      "type": "wokwi-resistor",
+      "id": "r_yellow",
+      "top": 310,
+      "left": 700,
+      "attrs": {
+        "value": "220"
+      }
+    }
+  ],
+
+  "connections": [
+
+    [
+      "start:1.l",
+      "esp:18",
+      "green",
+      []
+    ],
+
+    [
+      "start:2.l",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+    [
+      "accel:1.l",
+      "esp:19",
+      "blue",
+      []
+    ],
+
+    [
+      "accel:2.l",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+    [
+      "brake:1.l",
+      "esp:21",
+      "red",
+      []
+    ],
+
+    [
+      "brake:2.l",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+    [
+      "oled:VCC",
+      "esp:3V3",
+      "red",
+      []
+    ],
+
+    [
+      "oled:GND",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+    [
+      "oled:SDA",
+      "esp:22",
+      "green",
+      []
+    ],
+
+    [
+      "oled:SCL",
+      "esp:23",
+      "blue",
+      []
+    ],
+
+    [
+      "esp:25",
+      "r_green:1",
+      "green",
+      []
+    ],
+
+    [
+      "r_green:2",
+      "green_led:A",
+      "green",
+      []
+    ],
+
+    [
+      "green_led:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+    [
+      "esp:26",
+      "r_red:1",
+      "red",
+      []
+    ],
+
+    [
+      "r_red:2",
+      "red_led:A",
+      "red",
+      []
+    ],
+
+    [
+      "red_led:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+    [
+      "esp:27",
+      "r_yellow:1",
+      "yellow",
+      []
+    ],
+
+    [
+      "r_yellow:2",
+      "yellow_led:A",
+      "yellow",
+      []
+    ],
+
+    [
+      "yellow_led:C",
+      "esp:GND.1",
+      "black",
+      []
+    ]
+  ]
+}
